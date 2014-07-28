@@ -1,0 +1,73 @@
+<script type="text/javascript">
+
+var people = [
+    {
+        name: 'Hank',
+        age: 29,
+        parent: 'Don'
+    },
+    {
+        name: 'Deborah',
+        age: 30,
+        parent: 'Don'
+    },
+    {
+        name: 'Danny',
+        age: 24,
+        parent: 'Don'
+    },
+    {
+        name: 'Don',
+        age: 64,
+        parent: 'Haskell'
+    },
+    {
+        name: 'Kathy',
+        age: 75,
+        parent: 'Lenora'
+    },
+    {
+        name: 'Haskell',
+        age: 400,
+        parent: 'Finus'
+    },
+    {
+        name: 'Finus',
+        age: 7
+    }
+]
+
+function oldestLivingParent(people){
+    var parent = [];
+    var finalparentage = 0
+    var finalparentname = '';
+    var parentlist;
+
+    function eliminateDuplicates(parent) {
+        var out=[], obj={};
+        for (var i=0; i<parent.length; i++) {
+            obj[parent[i]]=0;
+        }
+        for (i in obj) {
+            out.push(i);
+        }
+        return out;
+    }
+
+    for (var h=0; h<people.length; h++) {
+        if(people[h].parent) {parent.push(people[h].parent);}
+    }
+    
+    parentlist = eliminateDuplicates(parent); 
+    
+    for (var j=0; j<people.length; j++) {
+        for(var k=0; k<parentlist.length; k++) {
+            if((parentlist[k] === people[j].name) && (finalparentage < people[j].age)) {
+                finalparentage = people[j].age;
+                finalparentname = people[j].name;
+            }    
+        }
+    }
+    return finalparentname;
+}
+</script>
