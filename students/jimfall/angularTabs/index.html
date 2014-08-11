@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="panel">
+<head>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<title></title>
+</head>
+<body>
+	<section ng-controller="PanelController as panel">
+		<ul class="nav nav-pills">
+			<li ng-class="{ active: panel.isSelected(1) }">
+				<a href ng-click="panel.selectTab(1)">Google</a>
+			</li>
+			<li ng-class="{ active:panel.isSelected(2) }">
+				<a href ng-click="panel.selectTab(2)">Yahoo!</a>
+			</li>
+			<li ng-class="{ active:panel.isSelected(3) }">
+				<a href ng-click="panel.selectTab(3)">Bing</a>
+			</li>
+		</ul>
+		<div class="panel" ng-show="panel.isSelected(1)">
+			<h4>Google</h4>
+			<p><a href="http://www.google.com"><img alt="Google" height="95" id="hplogo" src="https://www.google.com/images/srpr/logo11w.png" style="padding-top:10px" width="269"></a></p>
+		</div>
+		<div class="panel" ng-show="panel.isSelected(2)">
+			<h4>Yahoo!</h4>
+			<p><a href="http://www.yahoo.com"><img alt="Yahoo" height="95" id="hplogo" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTeBJQJrH-NF5fK6ppcQmAKU76WBXtixPLOTmyPBObZ6JP_0DYbaHiw50Zy" style="padding-top:10px" width="269"></a></p>
+		</div>
+		<div class="panel" ng-show="panel.isSelected(3)">
+			<h4>Bing</h4>
+			<p><a href="http://www.bing.com"><img alt="Bing" height="95" id="hplogo" src="http://www.tributemedia.com/files/imce/bing-logo.png" style="padding-top:10px" width="269"></a></p>
+		</div>
+	</section>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+
+</body>
+</html>
